@@ -2,13 +2,13 @@
 #include <string.h>
 
 using namespace std;
-
+// Function which returns an encrypted string, given the 'shift' n
 string caesar_encrypt(char* str, int n)
 {
     int i = 0;
     while (str[i] != '\0')
     {
-        //uslovie za golemite bukvi
+        //Big letters' clause
         if(((int)str[i] > 64 && (int)str[i] < 91))
         {
             int temp = 0;
@@ -16,7 +16,7 @@ string caesar_encrypt(char* str, int n)
             str[i] = (char)temp;
         }
 
-        //uslovie za malkite bukvi
+        //Small letters' clause
         if(((int)str[i] > 96 && (int)str[i] < 123))
         {
             int temp = 0;
