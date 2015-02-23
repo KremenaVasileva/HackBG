@@ -4,12 +4,12 @@
 #include <algorithm>
 
 using namespace std;
-
+// Function which calculates the volume of a regular tetrahedron in litres
 float fill_tetrahedron (int num)
 {
     return pow (num, 3) / ((sqrt (2)) * 6 * 1000);
 }
-
+// Function which returns the max number of tetrahedrons filled with the water given
 int tetrahedron_filled (vector<int> tetrahedrons, int water)
 {
     int numFilled = 0;
