@@ -1,0 +1,1 @@
+{'lighttpd': 3, 'Apache': 715, 'IIS': 71, 'nginx': 83}
