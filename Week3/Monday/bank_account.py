@@ -44,8 +44,13 @@ class BankAccount():
         if self.currency != other.currency or self.balance < amount:
             raise ValueError
         else:
-            self.withdraw(amount)
-            other.deposit(amount)
+            self.balance -= amount
+            self.account_history.append("Transfer to {} for {}{}".format(
+                other.name, amount, self.currency))
+
+            other.balance += amount
+            other.account_history.append("Transfer from {} for {}{}".format(
+                self.name, amount, self.currency))
             return True
 
     def history(self):

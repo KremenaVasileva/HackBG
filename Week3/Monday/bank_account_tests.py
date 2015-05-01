@@ -77,7 +77,7 @@ class TestBankAccount(unittest.TestCase):
 
         self.my_account.get_balance()
         needed_result.append("Balance check -> {}{}".format(
-            2020, self.my_account.currency))
+            2020, self.my_account.currency))  # 2000 + 20
 
         self.my_account.withdraw(5000)
         needed_result.append("Withdraw for 5000{} failed".format(
@@ -86,6 +86,10 @@ class TestBankAccount(unittest.TestCase):
         self.my_account.withdraw(200)
         needed_result.append("200{} was withdrawn".format(
             self.my_account.currency))
+
+        self.my_account.transfer_to(self.other_account, 700)
+        needed_result.append("Transfer to {} for 700{}".format(
+            self.other_account.name, self.my_account.currency))
 
         self.assertEqual(self.my_account.history(), needed_result)
 
