@@ -1,0 +1,70 @@
+1.
+select FirstName, LastName, Title from employees;
+2.
+select * from employees where city = 'Seattle';
+3.
+select * from employees where city = 'London';
+4.
+select * from employees where Title like '%Sales%';
+5.
+select * from employees 
+where Title like '%Sales%' 
+and (TitleOfCourtesy = 'Mrs.' or TitleOfCourtesy = 'Ms.');
+6.
+select * from employees order by BirthDate limit 5; 
+7.
+select * from employees order by HireDate limit 5;
+8.
+select * from employees where ReportsTo is null;
+9.
+select a.FirstName, a.LastName, b.FirstName, b.LastName
+from employees as a join employees as b
+on a.ReportsTo=b.EmployeeID;
+10.
+select count (*) from employees where (TitleOfCourtesy = 'Mrs.' or TitleOfCourtesy = 'Ms.');
+11.
+select count (*) from employees where (TitleOfCourtesy = 'Mr.' or TitleOfCourtesy = 'Dr.');
+12.
+select count(*) from employees
+group by City;
+13.
+select OrderID, FirstName, LastName
+from orders
+join employees
+on orders.EmployeeID = employees.EmployeeID;
+14.
+select OrderID, CompanyName
+from orders
+join shippers
+on orders.ShipVia = shippers.ShipperID;
+15.
+select count(*) from orders
+group by ShipCountry;
+16.
+select FirstName, LastName from employees as a
+inner join orders as b
+on a.EmployeeID=b.EmployeeID
+group by b.EmployeeID
+order by count(OrderID) desc limit 1;
+17.
+select CompanyName from customers as a
+inner join orders as b
+on a.CustomerID=b.CustomerID
+group by b.CustomerID
+order by count(OrderID) desc limit 1;
+18.
+select a.OrderID, b.FirstName, b.LastName, c.CompanyName
+from orders as a
+join employees as b
+on a.EmployeeID=b.EmployeeID
+join customers as c
+on a.CustomerID=c.CustomerID;
+19.
+select a.OrderID, b.CompanyName, c.CompanyName
+from orders as a
+join customers as b
+on a.CustomerID=b.CustomerID
+join shippers as c
+on a.ShipVia=c.ShipperID;
+
+
