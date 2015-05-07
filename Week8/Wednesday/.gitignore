@@ -55,5 +55,5 @@ docs/_build/
 
 # PyBuilder
 target/
-.db
-.sql
+*.db
+*.sql
