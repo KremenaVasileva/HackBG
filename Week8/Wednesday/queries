@@ -21,11 +21,11 @@ SELECT a.FirstName, a.LastName, b.FirstName, b.LastName
 FROM employees as a JOIN employees as b
 on a.ReportsTo=b.EmployeeID;
 10.
-SELECT count (*) FROM employees WHERE (TitleOfCourtesy = 'Mrs.' or TitleOfCourtesy = 'Ms.');
+SELECT count (EmployeeID) FROM employees WHERE (TitleOfCourtesy = 'Mrs.' or TitleOfCourtesy = 'Ms.');
 11.
-SELECT count (*) FROM employees WHERE (TitleOfCourtesy = 'Mr.' or TitleOfCourtesy = 'Dr.');
+SELECT count (EmployeeID) FROM employees WHERE (TitleOfCourtesy = 'Mr.' or TitleOfCourtesy = 'Dr.');
 12.
-SELECT count(*) FROM employees
+SELECT City, count (EmployeeID) FROM employees
 GROUP BY City;
 13.
 SELECT OrderID, FirstName, LastName
@@ -38,7 +38,7 @@ FROM orders
 JOIN shippers
 ON orders.ShipVia = shippers.ShipperID;
 15.
-SELECT count(*) FROM orders
+SELECT ShipCountry, count(OrderID) FROM orders
 GROUP BY ShipCountry;
 16.
 SELECT FirstName, LastName FROM employees AS a
@@ -66,5 +66,3 @@ JOIN customers AS b
 ON a.CustomerID=b.CustomerID
 JOIN shippers AS c
 ON a.ShipVia=c.ShipperID;
-
-
