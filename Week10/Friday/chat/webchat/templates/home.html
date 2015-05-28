@@ -1,0 +1,14 @@
+You're logged in :))
+{% for message in messages%}
+	<strong>{{message.user.username}}</strong>: {{message.user.content}}
+{% endfor %}
+
+<form method="POST" action="/post-message/">
+<textarea name="content"></textarea>
+
+<button>Send!</button>
+
+{% csrf_token %}
+</form>
+
+<a href='/logout'>Logout</a>

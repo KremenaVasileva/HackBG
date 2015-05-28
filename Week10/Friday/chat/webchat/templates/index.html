@@ -1,0 +1,10 @@
+<form action="/logged/" method="POST">
+Username:
+	<input type="text" name="username">
+
+Password:
+	<input type="password" name="password">
+	<button>Submit</button>
+
+{% csrf_token %}
+</form>
