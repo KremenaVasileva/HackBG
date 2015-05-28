@@ -5,7 +5,7 @@ from io_class import IO
 def main():
     my_company = CreateDB()
     # my_company.initial_db()
-    IO.init_database(my_company)
+    # IO.init_database(my_company)
     user_input = input("command>")
 
     while True:
